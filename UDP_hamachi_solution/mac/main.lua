@@ -1,6 +1,6 @@
 local socket = require "socket"
-local mac_ip = "25.0.170.53"
-local pc_ip = "25.51.137.112"
+local mac_ip = "25.0.170.53" -- hamachi虚拟IP地址1
+local pc_ip = "25.51.137.112" -- hamachi虚拟IP地址2
 mac_udp = socket.udp()
 pc_udp = socket.udp()
 mac_udp:setsockname(mac_ip, 28960)
