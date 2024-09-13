@@ -20,4 +20,5 @@ function love.draw()
     love.graphics.clear(7/255,19/255,31/255,1)
     love.graphics.print( a, 1550, 0)
     love.graphics.draw(a1)
+    
 end
