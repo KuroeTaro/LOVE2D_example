@@ -1,6 +1,6 @@
 local socket = require "socket"
-local mac_ip = "25.0.170.53"
-local pc_ip = "25.51.137.112"
+local mac_ip = "26.207.125.138"
+local pc_ip = "26.138.17.151"
 mac_udp = socket.udp()
 pc_udp = socket.udp()
 mac_udp:setpeername(mac_ip, 28960)
