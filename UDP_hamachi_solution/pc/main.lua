@@ -1,12 +1,12 @@
 local socket = require "socket"
-local mac_ip = "26.207.125.138"
-local pc_ip = "26.138.17.151"
-mac_udp = socket.udp()
-pc_udp = socket.udp()
-mac_udp:setpeername(mac_ip, 28960)
-pc_udp:setsockname(pc_ip, 28961)
-mac_udp:settimeout(0)
-pc_udp:settimeout(0)
+local remote_ip = "25.0.170.53"
+local local_ip = "25.51.137.112"
+remote_udp = socket.udp()
+local_udp = socket.udp()
+remote_udp:setpeername(remote_ip, 28960)
+local_udp:setsockname(local_ip, 28961)
+remote_udp:settimeout(0)
+local_udp:settimeout(0)
 
 time = 0
 
@@ -24,11 +24,11 @@ end
 
 function love.update(dt)
 	greenX, greenY = love.mouse.getPosition()
-	mac_udp:send(tostring(greenX)..'-'..tostring(greenY))
-	data = pc_udp:receive()
+	remote_udp:send(tostring(greenX)..'-'..tostring(greenY))
+	data = local_udp:receive()
 	while data ~= nil do
 		last_data = data
-		data = pc_udp:receive()
+		data = local_udp:receive()
 	end
 	if last_data then
 		local p = split(last_data, '-')

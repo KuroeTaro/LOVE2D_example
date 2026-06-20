@@ -4,14 +4,14 @@ function draw(camera,object,Image)
     scale = 800/(object[3]-camera[3])
     if object[6] == -1 then
         coodRes = {
-            scale*(object[1]-camera[1]+object[4])+800-scale/2*(object[4]), 
-            scale*(object[2]-camera[2])+450-scale/2*(object[5])
+            scale*(object[1]-camera[1])+800, 
+            scale*(object[2]-camera[2])+450
         }
         love.graphics.draw(Image,coodRes[1],coodRes[2],0,-scale,scale)
     else
         coodRes = {
-            scale*(object[1]-camera[1])+800-scale/2*(object[4]), 
-            scale*(object[2]-camera[2])+450-scale/2*(object[5])
+            scale*(object[1]-camera[1])+800, 
+            scale*(object[2]-camera[2])+450
         }
         love.graphics.draw(Image,coodRes[1],coodRes[2],0,scale,scale)
     end

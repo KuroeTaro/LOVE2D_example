@@ -24,7 +24,7 @@ function love.load()
         {
             vec2 uv = screen_coords.xy / 900;
 
-            uv *= 0.8;
+            uv *= 1.5;
 
             float v = 0.0;
 
@@ -36,7 +36,10 @@ function love.load()
                 v += noise(uv * e + vec2(time*1, 1)) * (1.0 - (t / 12.0)) * (t / 12.0);
             }
             v = ((v - 1) * 2 + 0.2 < 0) ? 0 : (((v - 1) * 2 + 0.2 > 1) ? 1 : (v - 1) * 2 + 0.2);
-
+            v = v +0.1;
+            v = mix(0.5, v, 0.5);
+            v = mix(0.5, v, 0.5);
+            v = mix(0.5, v, 0.5);
             return vec4(v, v, v, 1.0);
         }
     ]]
@@ -77,8 +80,8 @@ function love.draw()
     love.graphics.setShader()
     love.graphics.setCanvas()
 
-    love.graphics.setShader(radialBlurShader)
+    -- love.graphics.setShader(radialBlurShader)
     love.graphics.setColor(1, 1, 1)
     love.graphics.draw(canvas, 0, 0)
-    love.graphics.setShader()
+    -- love.graphics.setShader()
 end
